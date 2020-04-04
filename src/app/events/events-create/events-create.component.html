@@ -1,0 +1,54 @@
+<mat-card>
+  <form [formGroup] = "profileForm">
+    <mat-form-field>
+      <mat-label>Name of Event</mat-label>
+      <input formControlName="eventName" matInput placeholder="Enter Event Name Here" value="Event" >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Hosted By:</mat-label>
+      <input formControlName="eventHost" matInput placeholder="Enter Your Name Here" value="Name">
+    </mat-form-field>
+    <br>
+    <br>
+    <br>
+    <mat-form-field>
+      <mat-label>Date Of Event</mat-label>
+      <input formControlName="eventDate" matInput [matDatepicker]="myDatePicker">
+      <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Time of event</mat-label>
+      <input formControlName="eventTime" matInput placeholder="hh:mm" value="0:00">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>AM/PM?</mat-label>
+      <input formControlName="timeOfDay" matInput placeholder="Enter the time of day:" value="...">
+    </mat-form-field>
+    <br>
+    <br>
+    <br>
+    <mat-form-field>
+      <textarea formControlName="eventDescription" matInput rows="4" placeholder="Enter event details here" value="Details of event..."></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Number of Participants</mat-label>
+      <input formControlName="eventNumPeople" matInput placeholder="Enter Number Of Participants Here" value="0">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Estimated duration of event</mat-label>
+      <input formControlName="eventDuration" matInput placeholder="hh:mm" value="0:00">
+    </mat-form-field>
+    <br>
+  </form>
+  <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      (click) = "durationValue()">Create Post</button>
+</mat-card>
