@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../events.service';
 import { Subscription } from 'rxjs';
+import { Event } from '../event.model';
 
 @Component({
   selector: 'app-events-list',
@@ -8,15 +9,18 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./events-list.component.css']
 })
 export class EventsListComponent implements OnInit {
-  num = 1;
-  sub: Subscription;
+  event: Event;
+  name: string;
+  // sub: Subscription;
 
   constructor(private eventsService: EventsService) { }
 
   ngOnInit() {
-    this.num = this.eventsService.getData();
-    console.log(this.num);
-    this.sub = this.eventsService.getData.subscribe((num1: any) => {this.num = num1});
+    this.eventsService.eventSubject.subscribe(event => this.event = event);
+    this.name = this.event.eventName;
+    // this.num = this.eventsService.getData();
+    console.log(this.event.eventName);
+    // this.sub = this.eventsService.getData.subscribe((num1: any) => {this.num = num1});
   }
 
   // this.num = this.eventsService.getData();

@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Event } from './event.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService {
-  num = 0;
+  event: Event;
+  eventSubject = new BehaviorSubject<Event>('');
 
   constructor() { }
 
-  saveData(num) {
-    this.num = num;
-    console.log(num);
+  saveData(name) {
+    this.event = name;
+    console.log(name);
   }
 
   getData() {
-    return this.num;
+    return this.event;
   }
 
   getDataObeserver() {
-    return this.num.asObservable();
+    return this.eventSubject.asObservable();
   }
+
+  changeEvent(event: Event) {
+    this.eventSubject.next(event);
+  }
+
 }

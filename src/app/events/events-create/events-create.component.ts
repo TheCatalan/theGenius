@@ -33,13 +33,22 @@ export class EventsCreateComponent implements OnInit {
   }
 
   durationValue() {
+    this.event.eventName = this.profileForm.value.eventName;
+    this.event.eventHost = this.profileForm.value.eventHost;
+    this.event.eventDate = this.profileForm.value.eventDate;
+    this.event.eventTime = this.profileForm.value.eventTime;
+    this.event.eventDescription = this.profileForm.value.eventDescription;
+    this.event.eventNumPeople = this.profileForm.value.eventNumPeople;
+    this.event.eventDuration = this.profileForm.value.eventDuration;
     // this.event.eventName.setValue(this.profileForm.value.eventName);
     console.log(this.profileForm.value.eventName);
-    this.eventsService.saveData(this.profileForm.value.eventName);
+    // this.eventsService.saveData(this.profileForm.value.eventName);
     // return this.profileForm.value;
+    this.eventsService.changeEvent(this.event);
   }
 
   ngOnInit() {
+    this.eventsService.eventSubject.subscribe(event => this.event = event);
   }
 
   constructor(private eventsService: EventsService) {}
