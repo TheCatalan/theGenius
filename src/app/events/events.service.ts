@@ -21,7 +21,11 @@ export class EventsService {
   }
 
   getDataObeserver() {
+<<<<<<< HEAD
     return this.eventSubject.asObservable();
+=======
+    // return this.num.asObservable();
+>>>>>>> 75db975180981469a2f3325fe882691f8e3b51fb
   }
 
   changeEvent(event: Event) {

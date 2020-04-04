@@ -21,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { EventsListComponent } from './events/events-list/events-list.component';
 
 import { EventsService } from './events/events.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EventsService } from './events/events.service';
     EventsCreateComponent,
     HeaderComponent,
     EventsListComponent,
+    //LoginComponent,
     // EventsListComponent
   ],
   imports: [
