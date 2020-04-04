@@ -18,6 +18,6 @@ export class EventsService {
   }
 
   getDataObeserver() {
-    return this.num.asObservable();
+    // return this.num.asObservable();
   }
 }
